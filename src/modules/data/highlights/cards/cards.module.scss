@@ -1,0 +1,30 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  z-index: -1;
+  width: 100%;
+
+  .cards {
+    grid-gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    @media screen and (max-width: 74rem) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.skeleton {
+  grid-gap: 1rem;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  padding: 1rem;
+
+  .card {
+    border-radius: 1rem;
+    background: rgba(white, 5%);
+    min-height: 12.5rem;
+  }
+}

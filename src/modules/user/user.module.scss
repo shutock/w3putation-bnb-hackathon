@@ -1,0 +1,18 @@
+.section {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 6rem;
+  border-radius: 2rem;
+  background: rgba(white, 10%);
+  width: 32rem;
+  height: fit-content;
+
+  @media screen and (max-width: 48rem) {
+    position: static;
+    width: 100%;
+  }
+
+  .loading {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 1rem;
+  background: rgba(white, 5%);
+  background: linear-gradient(
+    to bottom left,
+    hsla(var(--hue, 70), 80%, 40%, 0.4),
+    rgba(white, 5%)
+  );
+  padding: 1rem;
+  height: 100%;
+  overflow: hidden;
+
+  .chart {
+    display: block;
+    position: relative;
+    border-radius: 999px;
+    aspect-ratio: 1/1;
+    width: 4rem;
+
+    svg {
+      position: absolute;
+      transform: scaleX(-1);
+      overflow: visible;
+    }
+
+    .score {
+      display: flex;
+      position: absolute;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0.128rem;
+      inset: 0;
+      color: white;
+      font-size: 1.25rem;
+      font-family: "Space Grotesk", sans-serif;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .title {
+      color: white;
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+
+    .paragraph {
+      line-height: 1.25em;
+    }
+  }
+}

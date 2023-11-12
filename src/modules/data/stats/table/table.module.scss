@@ -1,0 +1,69 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+
+  .header {
+    font-weight: 600;
+    color: white;
+
+    .row {
+      border-radius: 1rem 1rem 0 0;
+      background: rgba(white, 20%);
+
+      .cell {
+        padding: 1rem;
+      }
+    }
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+
+    .row {
+      background: rgba(white, 10%);
+      border-bottom: 1px solid rgba(white, 15%);
+      z-index: -1;
+
+      &:last-child {
+        border-bottom: none;
+        border-radius: 0 0 1rem 1rem;
+      }
+    }
+  }
+
+  .row {
+    display: flex;
+    gap: 1rem;
+
+    .cell {
+      width: 100%;
+      padding: 1rem;
+
+      .description {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        .units {
+          color: rgba(white, 40%);
+          font-style: italic;
+          text-transform: capitalize;
+        }
+      }
+
+      &:nth-child(1) {
+        width: 100%;
+      }
+
+      &:nth-child(2) {
+        min-width: 3rem;
+      }
+
+      &:nth-child(3) {
+        width: 100%;
+      }
+    }
+  }
+}

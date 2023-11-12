@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .title {
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      border: none;
+      border-radius: 1rem;
+      background: rgba(white, 10%);
+      padding: 1rem 1.5rem;
+      width: 100%;
+      color: white;
+      font: inherit;
+      text-align: center;
+
+      &:hover {
+        translate: 0 -0.125rem;
+        background: rgba(white, 15%);
+      }
+
+      &:active {
+        scale: 0.975;
+        background: rgba(white, 20%);
+      }
+    }
+  }
+}

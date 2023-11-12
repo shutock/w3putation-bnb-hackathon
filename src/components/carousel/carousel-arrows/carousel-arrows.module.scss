@@ -1,0 +1,50 @@
+.arrows {
+  display: flex;
+  padding: 0.25rem;
+  background: rgba(white, 5%);
+  width: fit-content;
+  border-radius: 999px;
+  margin: 0.5rem auto 0;
+
+  $size: 1.5rem;
+
+  .left,
+  .right {
+    border-radius: 999px;
+    width: $size;
+    cursor: pointer;
+    color: rgba(white, 40%);
+
+    transition: 0.2s ease-in-out;
+    transition-property: background, transform, color;
+
+    &:hover {
+      background: rgba(white, 5%);
+      transform: translateY(-0.125rem) scale(1.025);
+      color: white;
+    }
+
+    &:active {
+      background: rgba(white, 10%);
+      transform: translateY(-0.06125rem) scale(0.975);
+    }
+
+    .icon {
+      font: $size "Material Symbols Outlined", sans-serif;
+      line-height: 1em;
+      color: inherit;
+    }
+  }
+
+  .left {
+    .icon {
+      margin-left: -0.06125rem;
+    }
+  }
+
+  .right {
+    .icon {
+      margin-left: 0.06125rem;
+    }
+  }
+}

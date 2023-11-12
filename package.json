@@ -1,0 +1,36 @@
+{
+  "name": "w3putation-bnb-hackathon",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-spring/web": "^9.7.3",
+    "@use-gesture/react": "^10.3.0",
+    "appwrite": "^13.0.0",
+    "classnames": "^2.3.2",
+    "crypto-js": "^4.2.0",
+    "framer-motion": "^10.16.4",
+    "geist": "^1.1.0",
+    "next": "14.0.2",
+    "nextjs-google-analytics": "^2.3.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-recaptcha": "^2.3.10",
+    "recharts": "^2.9.3",
+    "sass": "^1.69.5",
+    "wagmi": "^0.12.9"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.2",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,128 @@
+.form {
+  height: 2rem;
+  background: rgba(white, 10%);
+  width: fit-content;
+  display: flex;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+
+  .input {
+    background: transparent;
+    border: none;
+    color: rgba(white, 80%);
+    font: inherit;
+    min-width: 14rem;
+    padding: 0 1rem;
+
+    &::placeholder {
+      color: rgba(white, 40%);
+    }
+  }
+
+  .submit {
+    border: none;
+    background: white;
+    color: black;
+    font: inherit;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &.error {
+    $color: lightcoral;
+    box-shadow: 0 0 0 1px $color;
+    animation: shake 0.4s ease-in-out;
+
+    @keyframes shake {
+      0% {
+        translate: 0;
+      }
+
+      20% {
+        translate: -0.25rem;
+      }
+
+      40% {
+        translate: -0.25rem;
+      }
+
+      60% {
+        translate: 0.5rem;
+      }
+
+      80% {
+        translate: -0.5rem;
+      }
+
+      100% {
+        translate: 0;
+      }
+    }
+
+    .input {
+      color: $color;
+    }
+
+    .submit {
+      background: $color;
+      color: white;
+    }
+  }
+
+  &.success {
+    $color: lightgreen;
+    box-shadow: 0 0 0 1px $color;
+
+    .input {
+      color: $color;
+    }
+
+    .submit {
+      background: $color;
+      color: darkgreen;
+    }
+  }
+
+  &.loading {
+    animation: loading 1s ease-in-out infinite;
+    cursor: wait;
+
+    * {
+      cursor: wait;
+    }
+
+    @keyframes loading {
+      0% {
+        background: rgba(white, 10%);
+      }
+      66% {
+        background: rgba(white, 15%);
+      }
+      100% {
+        background: rgba(white, 10%);
+      }
+    }
+  }
+}
+
+.message {
+  margin: -3rem 0 0 0;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  height: 1rem;
+
+  &.show {
+    margin: -1rem 0 0 0;
+    opacity: 1;
+  }
+
+  &.success {
+    color: lightgreen;
+  }
+
+  &.error {
+    color: lightcoral;
+  }
+}

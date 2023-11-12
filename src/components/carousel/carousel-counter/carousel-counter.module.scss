@@ -1,0 +1,26 @@
+.counter {
+  font-feature-settings: "tnum" on, "lnum" on, "case" on;
+  -webkit-backdrop-filter: blur(1rem);
+  display: flex;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  gap: 0rem;
+  backdrop-filter: blur(1rem);
+  border-radius: 999px;
+  background: rgba(black, 40%);
+  padding: 0.25rem 0.5rem;
+  overflow: hidden;
+
+  .current {
+    color: rgba(white, 100%);
+  }
+
+  .slash {
+    color: rgba(white, 40%);
+  }
+
+  .total {
+    color: rgba(white, 40%);
+  }
+}

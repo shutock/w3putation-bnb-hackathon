@@ -1,0 +1,24 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 2rem;
+  background: rgba(white, 10%);
+  padding: 1rem;
+  width: 100%;
+  min-height: calc(100svh - 6rem - 6rem);
+
+  &.error {
+    gap: 1rem;
+    background: rgba(lightcoral, 15%);
+    color: lightcoral;
+  }
+
+  .loading {
+    margin: auto;
+  }
+
+  @media screen and (max-width: 48rem) {
+    min-height: unset;
+  }
+}

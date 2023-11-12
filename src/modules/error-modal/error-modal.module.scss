@@ -1,0 +1,91 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s ease-in-out;
+  padding: 1rem;
+
+  &.open {
+    .section {
+      translate: 0 0;
+    }
+
+    .bg {
+      opacity: 1;
+    }
+  }
+
+  .bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(black, 40%);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
+    z-index: 9999997;
+  }
+
+  .section {
+    width: 100%;
+    height: 100%;
+    max-width: 48rem;
+    max-height: 32rem;
+    background: hsla(0, 0%, 10%);
+    border-radius: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    transition: translate 0.4s ease-in-out;
+    translate: 0 100vh;
+    z-index: 9999998;
+
+    .close {
+      font: 1.5rem "Material Symbols Outlined";
+      position: absolute;
+      inset: 1rem 1rem auto auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      aspect-ratio: 1;
+      border-radius: 999px;
+      background: rgba(white, 10%);
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: rgba(white, 15%);
+        translate: 0 -0.25rem;
+      }
+
+      &:active {
+        background: rgba(white, 20%);
+        scale: 0.95;
+      }
+    }
+
+    .title {
+      font-size: 2rem;
+      color: white;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+    }
+
+    .text {
+      line-height: 1.5em;
+      text-align: center;
+      overflow-y: auto;
+      word-wrap: break-word;
+      white-space: break-spaces;
+      max-width: 100%;
+    }
+  }
+}

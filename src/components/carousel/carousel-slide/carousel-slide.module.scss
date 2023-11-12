@@ -1,0 +1,9 @@
+$radius: 1rem;
+
+.slide {
+  min-height: 100%;
+  min-width: calc(100% - 1rem - $radius * 2);
+  scroll-snap-align: start;
+
+  border-radius: $radius;
+}

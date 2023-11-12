@@ -1,0 +1,14 @@
+.slides {
+  display: flex;
+  position: relative;
+  gap: 1rem;
+  border-radius: 1rem;
+  width: 100%;
+  overflow: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

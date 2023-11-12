@@ -1,0 +1,104 @@
+.section {
+  position: sticky;
+  position: -webkit-sticky;
+  margin: auto;
+  inset: 0 0 auto 0;
+  padding: 1rem;
+  max-width: 92rem;
+  user-select: none;
+
+  .wrapper {
+    -webkit-backdrop-filter: blur(1rem);
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    backdrop-filter: blur(1rem);
+    border-radius: 999px;
+    background: rgba(white, 10%);
+    padding: 1rem;
+
+    @media screen and (max-width: 48rem) {
+      margin: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      height: 2rem;
+
+      .icon {
+        border-radius: 999px;
+        aspect-ratio: 1;
+        height: 2rem;
+        object-fit: cover;
+      }
+
+      .label {
+        color: white;
+        font: 1.5rem "Space Grotesk", "Inter", sans-serif;
+        letter-spacing: -0.06em;
+      }
+
+      .beta {
+        border-radius: 999px;
+        background: rgba(white, 10%);
+        padding: 0.25rem 0.5rem;
+        color: rgba(white, 40%);
+      }
+    }
+
+    .description {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      height: 2rem;
+
+      .chains {
+        display: flex;
+
+        .chain {
+          -webkit-mask-size: 5rem;
+          -webkit-mask-image: radial-gradient(
+            circle,
+            transparent 0%,
+            transparent 50%,
+            black 50%,
+            black 100%
+          );
+          mask-image: radial-gradient(
+            circle,
+            transparent 0%,
+            transparent 50%,
+            black 50%,
+            black 100%
+          );
+          mask-position: left center;
+          mask-size: 5rem;
+
+          margin: 0 0 0 -0.5rem;
+          border-radius: 999px;
+          aspect-ratio: 1;
+          width: 2rem;
+
+          &:first-child {
+            margin: 0;
+          }
+
+          &:last-child {
+            mask: none;
+          }
+        }
+      }
+
+      .label {
+        padding: 0 1rem 0 0;
+        color: rgba(white, 40%);
+
+        @media screen and (max-width: 28rem) {
+          display: none;
+        }
+      }
+    }
+  }
+}

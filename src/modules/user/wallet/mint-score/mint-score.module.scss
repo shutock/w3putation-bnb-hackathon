@@ -1,0 +1,204 @@
+.container {
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+
+    .mint {
+      display: flex;
+      position: relative;
+      flex: 1;
+      justify-content: center;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      border: none;
+      border-radius: 1rem;
+      background: transparent;
+      background: radial-gradient(
+          100% 100% at 50% 0%,
+          rgba(255, 255, 255, 0.7) 0%,
+          rgba(36, 242, 255, 0.7) 24.48%,
+          rgba(223, 28, 255, 0.7) 100%
+        ),
+        linear-gradient(180deg, #b665f5 0%, #0875f5 100%);
+      width: 100%;
+      font: inherit;
+      font-weight: 500;
+      line-height: 1em;
+
+      &::after {
+        display: block;
+        position: absolute;
+        translate: 50% -50%;
+        inset: 50% 50% auto auto;
+        background: rgba(white, 20%);
+        width: 1px;
+        height: 100%;
+        content: "";
+      }
+
+      .label {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        height: 100%;
+        color: white;
+        font-size: 0.875rem;
+        line-height: 1.25em;
+        text-align: center;
+      }
+
+      .price {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        height: 100%;
+        color: rgba(white, 60%);
+        font-size: 0.75rem;
+        line-height: 1.25em;
+        text-align: center;
+      }
+
+      &:hover {
+        translate: 0 -0.25rem;
+      }
+
+      &:active {
+        scale: 0.975;
+      }
+    }
+
+    .refresh {
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      border: none;
+      border-radius: 1rem;
+      background: rgba(white, 10%);
+      aspect-ratio: 1;
+      height: 3rem;
+      color: white;
+      font: 1.5rem "Material Symbols Outlined";
+
+      &:hover {
+        translate: 0 -0.25rem;
+        background: rgba(white, 15%);
+      }
+
+      &:active {
+        scale: 0.95;
+        background: rgba(white, 20%);
+      }
+    }
+  }
+}
+
+.loading {
+  animation: loading 1s ease-in-out infinite;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  text-align: center;
+
+  @keyframes loading {
+    0% {
+      background: rgba(white, 10%);
+    }
+    66% {
+      background: rgba(white, 15%);
+    }
+    100% {
+      background: rgba(white, 10%);
+    }
+  }
+}
+
+.explorer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .link {
+    border-radius: 1rem;
+    background: rgba(white, 10%);
+    padding: 1rem 1.5rem;
+    text-align: center;
+  }
+
+  .status {
+    text-align: center;
+
+    &.pending {
+      animation: loading 1s ease-in-out infinite;
+
+      @keyframes loading {
+        0% {
+          color: rgba(white, 80%);
+        }
+        60% {
+          color: rgba(white, 40%);
+        }
+        100% {
+          color: rgba(white, 80%);
+        }
+      }
+    }
+
+    &.success {
+      color: lightgreen;
+    }
+
+    &.failed {
+      color: lightcoral;
+    }
+  }
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 0 0 1px rgba(red, 15%);
+  border-radius: 2rem;
+  padding: 1rem;
+
+  .title {
+    border-radius: 999px;
+    background: rgba(red, 10%);
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    color: red;
+    text-align: center;
+  }
+
+  .show {
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border-radius: 1rem;
+    background: rgba(white, 10%);
+    padding: 1rem 1.5rem;
+    width: 100%;
+    text-align: center;
+
+    &:hover {
+      translate: 0 -0.25rem;
+      background: rgba(white, 15%);
+    }
+
+    &:active {
+      scale: 0.95;
+      background: rgba(white, 20%);
+    }
+  }
+}
+
+.nullAddress {
+  border-radius: 1rem;
+  background: rgba(white, 10%);
+  padding: 1rem;
+  text-align: center;
+}

@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+
+  .spinner {
+    font-family: "Space Grotesk", "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 2.25rem;
+    color: white;
+    width: 4rem;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+
+    animation: loading 1.6s ease-in-out infinite;
+
+    @keyframes loading {
+      0% {
+        background: rgba(white, 5%);
+        transform: rotate(0);
+      }
+      60% {
+        background: rgba(white, 10%);
+        transform: rotate(-375deg);
+      }
+      75%,
+      100% {
+        background: rgba(white, 5%);
+        transform: rotate(-360deg);
+      }
+    }
+  }
+
+  .label {
+    color: rgba(white, 40%);
+    font-size: 0.75rem;
+  }
+}
