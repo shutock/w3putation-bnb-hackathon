@@ -10,7 +10,7 @@ import { readableError } from "@/lib";
 import { useSignMessage } from "@/hooks";
 import { event } from "nextjs-google-analytics";
 
-const contractAddress = "0xAbe08390C1d5c7FdB6fc6F17EEd6c8CfC193A259";
+const contractAddress = "0xC388Fae5C90E0Fb95CA1E76674A3439db07A6579";
 
 export const useScore = () => {
   const { address: account } = useAccount();

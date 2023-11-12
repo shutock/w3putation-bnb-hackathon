@@ -4,7 +4,7 @@ import { useConnect } from "wagmi";
 
 import styles from "./connect.module.scss";
 import { formatConnectorName } from "../../../lib";
-import { zkSync } from "wagmi/chains";
+import { opBNB } from "@/lib";
 import classNames from "classnames";
 
 import { useSearchParams } from "next/navigation";
@@ -43,7 +43,7 @@ export const Connect: React.FC = () => {
             );
 
           const handler = () => {
-            connect({ connector, chainId: zkSync.id });
+            connect({ connector, chainId: opBNB.id });
           };
 
           const isPending = isLoading && pendingConnector === connector;

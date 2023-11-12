@@ -2,7 +2,7 @@
 
 import { WagmiConfig, configureChains, createClient } from "wagmi";
 
-import { zkSync } from "wagmi/chains";
+import { opBNB } from "@/lib";
 import { publicProvider } from "wagmi/providers/public";
 
 import { InjectedConnector } from "wagmi/connectors/injected";
@@ -17,7 +17,7 @@ type Props = {
 
 export const Wagmi: React.FC<Props> = ({ children }) => {
   const { chains, provider, webSocketProvider } = configureChains(
-    [zkSync],
+    [opBNB],
     [publicProvider()]
   );
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { zkSync } from "wagmi/chains";
+import { opBNB } from "@/lib";
 import {
   getContract,
   useContract,
@@ -51,11 +51,11 @@ export const MintScore: React.FC = () => {
   const isUpdate = token.isLoading ? null : token.data ? true : false;
 
   React.useEffect(() => {
-    const rpc = zkSync.rpcUrls.public.http[0];
+    const rpc = opBNB.rpcUrls.public.http[0];
 
     const contract = getContract({
       rpc,
-      address: "0xAbe08390C1d5c7FdB6fc6F17EEd6c8CfC193A259",
+      address: "0xC388Fae5C90E0Fb95CA1E76674A3439db07A6579",
     });
 
     const getUpdateFee = async () => {
@@ -63,7 +63,7 @@ export const MintScore: React.FC = () => {
     };
 
     const getIndividualUpdateFee = async () => {
-      return await contract["getIndividualUpdateFee"](address, 10);
+      return await contract["getIndividualUpdateFee"](address, 11);
     };
 
     const getMintFee = async () => {
@@ -71,11 +71,11 @@ export const MintScore: React.FC = () => {
     };
 
     const getIndividualMintFee = async () => {
-      return await contract["getIndividualMintFee"](address, 10);
+      return await contract["getIndividualMintFee"](address, 11);
     };
 
     const getIsWhitelisted = async () => {
-      return await contract["whitelist"](address, 10);
+      return await contract["whitelist"](address, 11);
     };
 
     const getFee = async () => {
@@ -148,7 +148,7 @@ export const MintScore: React.FC = () => {
 
   React.useEffect(() => {
     //@ts-ignore
-    getToken({ address, blockchainId: 324, calculationModel: 10 });
+    getToken({ address, blockchainId: opBNB.id, calculationModel: 11 });
   }, [status, address, getToken]);
 
   //@ts-ignore
@@ -216,7 +216,8 @@ export const MintScore: React.FC = () => {
           <div className={styles.explorer}>
             <a
               className={styles.link}
-              href={`${zkSync.blockExplorers.default.url}/tx/${trx?.hash}`}
+              // @ts-ignore
+              href={`${opBNB.blockExplorers.default.url}/tx/${trx?.hash}`}
               target="_blank"
             >
               Open in Explorer
@@ -258,7 +259,7 @@ export const MintScore: React.FC = () => {
         )
       ) : (
         <div className={styles.nullAddress}>
-          Make at least 2 transaction on zkSync, BSC or Ethereum to get a Score
+          Make at least 2 transaction on opBNB, BSC or Ethereum to get a Score
         </div>
       )}
     </div>

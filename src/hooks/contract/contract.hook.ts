@@ -23,7 +23,7 @@ type MintToken = (props: IData["mintData"]) => void;
 
 type ClaimReward = () => void;
 
-const contractAddress = "0xAbe08390C1d5c7FdB6fc6F17EEd6c8CfC193A259";
+const contractAddress = "0xC388Fae5C90E0Fb95CA1E76674A3439db07A6579";
 const rpc = opBNB.rpcUrls.public.http[0];
 
 const isDebug = false;
@@ -245,7 +245,7 @@ export const useContract = () => {
 
       const token = (await contract["getScore"](
         address,
-        324,
+        opBNB.id,
         calculationModel
       )) as ITokenRaw<BigNumber>;
 

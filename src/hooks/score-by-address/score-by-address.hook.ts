@@ -7,8 +7,9 @@ import { abi } from "../score/abi";
 
 import type { IResponse, IToken } from "./response.type";
 import { useScoreByAddressStore } from "./score-by-address.store";
+import { opBNB } from "@/lib";
 
-const contractAddress = "0xAbe08390C1d5c7FdB6fc6F17EEd6c8CfC193A259";
+const contractAddress = "0xC388Fae5C90E0Fb95CA1E76674A3439db07A6579";
 
 export const useScoreByAddress = () => {
   const { data, error, isLoading, setData, setError, setIsLoading } =
@@ -21,7 +22,7 @@ export const useScoreByAddress = () => {
     try {
       const { chainId, tokenId, updated, ...params } = (await contract[
         "getScore"
-      ](address, 324, 4)) as IToken<ethers.BigNumber>;
+      ](address, opBNB.id, 11)) as IToken<ethers.BigNumber>;
       const formattedToken: IToken<number> = {
         ...params,
         chainId: chainId.toNumber(),
@@ -31,6 +32,7 @@ export const useScoreByAddress = () => {
 
       return formattedToken;
     } catch (err) {
+      //@ts-ignore
       setError(err.message);
       setIsLoading(false);
     }
@@ -42,6 +44,7 @@ export const useScoreByAddress = () => {
       const response = (await (await fetch(tokenUri)).json()) as IResponse;
       return response;
     } catch (err) {
+      //@ts-ignore
       setError(err.message);
       setIsLoading(false);
     }
@@ -49,17 +52,22 @@ export const useScoreByAddress = () => {
 
   const getData = async (address: string) => {
     try {
+      //@ts-ignore
       setData(null);
       setIsLoading(true);
       const token = await getToken(address);
+      //@ts-ignore
       if (token.score === 0) {
         setIsLoading(false);
         return;
       }
+      //@ts-ignore
       const tokenUri = await getTokenUri(token.tokenId);
+      //@ts-ignore
       setData({ ...tokenUri, ...token });
       setIsLoading(false);
     } catch (err) {
+      //@ts-ignore
       setError(err.message);
       setIsLoading(false);
     }

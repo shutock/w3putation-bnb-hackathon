@@ -52,7 +52,7 @@ export const useMint = () => {
 
   const { chain } = useNetwork();
   //@ts-ignore
-  const { switchNetworkAsync } = useSwitchNetwork({ chainId: zkSync.id });
+  const { switchNetworkAsync } = useSwitchNetwork({ chainId: opBNB.id });
 
   const { data: signer } = useSigner();
 
@@ -63,14 +63,18 @@ export const useMint = () => {
   const mint = async () => {
     try {
       setIsLoading(true);
+      //@ts-ignore
       setError(null);
+      //@ts-ignore
       setTrxHash(null);
 
       const isWhitelisted = await getIsWhitelisted();
 
-      if (chain?.id !== zkSync.id) await switchNetworkAsync();
+      if (chain?.id !== opBNB.id && switchNetworkAsync)
+        await switchNetworkAsync(opBNB.id);
 
       const {
+        //@ts-ignore
         mintData: {
           signature,
           mintedScore,
@@ -80,6 +84,7 @@ export const useMint = () => {
         },
       } = data;
 
+      //@ts-ignore
       const contract = new ethers.Contract(address, abi, signer);
 
       const referralCode = (await contract.getReferralCode(address)) || "";
@@ -106,11 +111,15 @@ export const useMint = () => {
     } catch (err) {
       setIsLoading(false);
 
+      //@ts-ignore
       if (err.message.toLowerCase().includes("rejected")) return;
 
+      //@ts-ignore
       if (err.data?.message) {
+        //@ts-ignore
         setError(err.data.message);
       } else {
+        //@ts-ignore
         setError(err.message);
       }
     }

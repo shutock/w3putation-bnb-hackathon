@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useProvider } from "wagmi";
-import { zkSync } from "wagmi/chains";
+import { opBNB } from "@/lib";
 
 type Status = "pending" | "failed" | "success";
 
@@ -10,7 +10,7 @@ const isDebug = false;
 export const useTrxStatus = (hash?: string | null) => {
   const [status, setStatus] = React.useState<Status | null>(null);
 
-  const provider = useProvider({ chainId: zkSync.id });
+  const provider = useProvider({ chainId: opBNB.id });
 
   React.useEffect(() => {
     if (!hash) return;

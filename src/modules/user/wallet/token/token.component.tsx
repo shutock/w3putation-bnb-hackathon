@@ -4,8 +4,9 @@ import { useAccount, useSigner } from "wagmi";
 import { useContract, useOldToken } from "../../../../hooks";
 
 import styles from "./token.module.scss";
+import { opBNB } from "@/lib";
 
-const contractAddress = "0xAbe08390C1d5c7FdB6fc6F17EEd6c8CfC193A259";
+const contractAddress = "0xC388Fae5C90E0Fb95CA1E76674A3439db07A6579";
 
 export const Token: React.FC = () => {
   const { address } = useAccount();
@@ -24,7 +25,7 @@ export const Token: React.FC = () => {
     if (status && status !== "success") return;
 
     // getData(address);
-    getToken({ address, blockchainId: 324, calculationModel: 10 });
+    getToken({ address, blockchainId: opBNB.id, calculationModel: 11 });
     getData(address);
   }, [address, signer, status]);
 

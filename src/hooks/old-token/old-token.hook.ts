@@ -3,6 +3,7 @@ import { IResponse, IToken } from "./token.type";
 import { ethers } from "ethers";
 import { contract as getContract } from "./contract";
 import { useOldTokenStore } from "./old-token.store";
+import { opBNB } from "@/lib";
 
 export const useOldToken = () => {
   const { data, error, isLoading, setData, setError, setIsLoading } =
@@ -14,7 +15,7 @@ export const useOldToken = () => {
     try {
       const tokenData = (await contract["getScore"](
         address,
-        324,
+        opBNB.id,
         10
       )) as IToken<ethers.BigNumber>;
 

@@ -3,6 +3,7 @@ import { IResponse, IToken } from "./token.type";
 import { ethers } from "ethers";
 import { contract as getContract } from "./contract";
 import { useNewTokenStore } from "./new-token.store";
+import { opBNB } from "@/lib";
 
 export const useNewToken = () => {
   const { data, error, isLoading, setData, setError, setIsLoading } =
@@ -14,7 +15,7 @@ export const useNewToken = () => {
     try {
       const tokenData = (await contract["getScore"](
         address,
-        324,
+        opBNB.id,
         4
       )) as IToken<ethers.BigNumber>;
 
@@ -28,6 +29,7 @@ export const useNewToken = () => {
 
       return formattedToken;
     } catch (err) {
+      //@ts-ignore
       setError(err.message);
       setIsLoading(false);
       setData(null);
@@ -40,6 +42,7 @@ export const useNewToken = () => {
       const response = (await (await fetch(tokenUri)).json()) as IResponse;
       return response;
     } catch (err) {
+      //@ts-ignore
       setError(err.message);
       setIsLoading(false);
       setData(null);
@@ -55,14 +58,16 @@ export const useNewToken = () => {
 
       const token = await getToken(address);
 
-      if (token.score === 0) {
+      if (token?.score === 0) {
         setIsLoading(false);
         return;
       }
-      const tokenUri = await getTokenUri(token.tokenId);
+      const tokenUri = await getTokenUri(token!.tokenId);
+      //@ts-ignore
       setData({ ...tokenUri, ...token });
       setIsLoading(false);
     } catch (err) {
+      //@ts-ignore
       setError(err.message);
       setIsLoading(false);
       setData(null);

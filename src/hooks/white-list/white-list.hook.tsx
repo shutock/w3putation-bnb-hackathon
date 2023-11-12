@@ -1,16 +1,13 @@
 import React from "react";
-import { ethers } from "ethers";
 
-import { zkSync } from "wagmi/chains";
-
-import { abi } from "./abi";
+import { opBNB } from "@/lib";
 
 import { type Address } from "wagmi";
 import { getContract } from "../contract";
 
 type Props = { address: Address };
 
-const contractAddress = "0xAbe08390C1d5c7FdB6fc6F17EEd6c8CfC193A259";
+const contractAddress = "0xC388Fae5C90E0Fb95CA1E76674A3439db07A6579";
 
 export const useWhitelist = ({ address }: Props) => {
   const [data, setData] = React.useState<boolean | null>(null);
@@ -21,16 +18,17 @@ export const useWhitelist = ({ address }: Props) => {
     try {
       const contract = getContract({
         address: contractAddress,
-        rpc: zkSync.rpcUrls.default.http[0],
+        rpc: opBNB.rpcUrls.default.http[0],
       });
       setError(null);
       setIsLoading(true);
 
-      const response = (await contract["whitelist"](address, 10)) as boolean;
+      const response = (await contract["whitelist"](address, 11)) as boolean;
       setData(response);
       setIsLoading(false);
       return response;
     } catch (err) {
+      // @ts-ignore
       setError(err.message);
       setIsLoading(false);
     }

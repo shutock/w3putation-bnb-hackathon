@@ -1,15 +1,15 @@
-import { zkSync } from "wagmi/chains";
+import { opBNB } from "@/lib";
 import { abi } from "./abi";
 import { ethers } from "ethers";
 
-const address = "0xAbe08390C1d5c7FdB6fc6F17EEd6c8CfC193A259";
+const address = "0xC388Fae5C90E0Fb95CA1E76674A3439db07A6579";
 
 type Params = {
   signer?: ethers.Signer;
 };
 
 const provider = new ethers.providers.JsonRpcProvider(
-  zkSync.rpcUrls.default.http[0]
+  opBNB.rpcUrls.default.http[0]
 );
 
 export const contract = (params?: Params) =>
